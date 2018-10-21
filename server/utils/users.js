@@ -40,6 +40,11 @@ class Users {
 
     return namesArray;
   }
+
+  isUserInRoom(name, room) {
+    const list = this.getUserList(room).map((user) => user.toLowerCase());
+    return (list.includes(name.toLowerCase()))
+  }
 }
 
 module.exports = { Users }

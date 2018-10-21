@@ -45,7 +45,7 @@ describe('Users', () => {
   it ('should not remove a user', () => {
     let userId = '4'
     let response = users.removeUser(userId);
-    
+
     expect(response).toNotExist();
     expect(users.users.length).toBe(3);
   });
@@ -74,5 +74,19 @@ describe('Users', () => {
     expect(response).toEqual(['Jen']);
   });
 
+  it('should accept new unique name', () => {
+    let response = users.isUserInRoom('Fred', 'React Course');
+    expect(response).toBe(false);
+  });
+
+  it('should reject duplicate name', () => {
+    let response = users.isUserInRoom('Mike', 'Node Course');
+    expect(response).toBe(true);
+  });
+
+  it('should reject duplicate name insensitive', () => {
+    let response = users.isUserInRoom('mIkE', 'Node Course');
+    expect(response).toBe(true);
+  });
 
 });
