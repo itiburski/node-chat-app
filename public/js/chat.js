@@ -17,7 +17,6 @@ function scrollToBottom() {
 }
 
 socket.on('connect', function() {
-  console.log('Connected to server');
   var params = jQuery.deparam(window.location.search);
 
   socket.emit('join', params, function(err) {
@@ -25,13 +24,13 @@ socket.on('connect', function() {
       alert(err);
       window.location.href = '/';
     } else {
-      console.log('no error');
+      jQuery('#room-name').text(params.room);
     }
   });
 });
 
 socket.on('disconnect', function() {
-  console.log('Disconnected from server');
+
 });
 
 socket.on('updateUserList', function(users) {

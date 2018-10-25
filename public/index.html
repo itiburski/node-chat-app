@@ -15,16 +15,21 @@
         </div>
         <div class="form-field">
           <label for="name">Display name</label>
-          <input type="text" name="name" autofocus/>
+          <input type="text" name="name" autofocus autocomplete="off"/>
         </div>
         <div class="form-field">
           <label for="room">Room name</label>
-          <input type="text" name="room">
+          <input type="text" name="room" list="room-list" autocomplete="off">
+          <datalist id="room-list"/>
         </div>
         <div class="form-field">
           <button>Join</button>
         </div>
       </form>
     </div>
+
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script src="/js/libs/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src= "/js/index.js"></script>
   </body>
 </html>

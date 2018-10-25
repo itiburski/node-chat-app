@@ -41,6 +41,13 @@ class Users {
     return namesArray;
   }
 
+  getRoomsList() {
+    const roomsArray = this.users.map((user) => user.room);
+    const uniqueRoomsArray = [...new Set(roomsArray)];
+
+    return uniqueRoomsArray;
+  }
+
   isUserInRoom(name, room) {
     const list = this.getUserList(room).map((user) => user.toLowerCase());
     return (list.includes(name.toLowerCase()))
